@@ -1,0 +1,77 @@
+.hamburger {
+  position: fixed;
+  z-index: 2;
+  top: 20px;
+  left: 20px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+.sidenav {
+  height: 100%;
+  width: 190px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 10px;
+  border-right: 1px solid lightgray;
+  background-color: white;
+}
+
+.toggle {
+  display: none;
+}
+
+.navlink {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+  display: block;
+}
+
+.active {
+  color: white;
+  background-color: rgb(0 121 158);
+}
+
+.navlink:hover {
+  background-color: rgba(0, 121, 158, 0.5);
+  color: white;
+  text-decoration: none;
+}
+
+.navlink:active {
+  color: white;
+  background-color: rgb(0 121 158);
+}
+
+.logo {
+  width: 150px;
+  padding-bottom: 50px;
+  padding-left: 25px;
+}
+
+.social {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+}
+
+.social p {
+  font-size: 14px
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0 10px;
+}
+
+@media (min-width: 600px) {
+  .sidenav { display: block; }
+  .hamburger { display: none; }
+}

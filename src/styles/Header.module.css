@@ -1,0 +1,14 @@
+.Header {
+  height: 100px;
+  width: calc(100% + 68px);
+  background-color: rgb(0 121 158);
+  margin: 0 -35px 35px -35px;
+  color: #fff;
+  text-align: right;
+  padding: 30px 20px 0 0;
+  font-size: 25px;
+  font-style: italic;
+  -webkit-box-shadow: 0 10px 10px -10px #fff;
+  -moz-box-shadow: 0 10px 10px -10px #fff;
+  box-shadow: 0 10px 10px -10px #4e4e4e;
+}
