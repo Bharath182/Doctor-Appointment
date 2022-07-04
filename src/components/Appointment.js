@@ -81,6 +81,7 @@ const Appointment = () => {
             <p>
               On &nbsp;
               {new Date(content.appointment_date).toUTCString()}
+              &nbsp;(20mins)
             </p>
             <button className="btn btn-primary btn-block" type="button" onClick={handleClick} disabled={loading}>
               Delete
