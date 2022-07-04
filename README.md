@@ -16,7 +16,7 @@ To run the app locally, clone the repository, navigate to it's directory.
 
 ```bash
 git clone git@github.com/Bharath182/doctor-appointment-booking.git
-cd doctor-appointment-booking
+cd Doctor-Appointment
 npm install
 npm start
 ```
