@@ -9,6 +9,17 @@ const Appointments = () => {
   const [loading, setLoading] = useState(true);
   const { user: currentUser } = useSelector(state => state.auth);
   let appointments;
+  const appointmentCount = {
+    position: 'absolute',
+    right: '14px',
+    top: '12px',
+    width: '25px',
+    height: '25px',
+    backgroundColor: 'rgb(0 121 158)',
+    textAlign: 'center',
+    borderRadius: '50%',
+    color: '#fff',
+  };
 
   useEffect(() => {
     if (currentUser) {
@@ -33,7 +44,7 @@ const Appointments = () => {
   if (!currentUser) {
     return <Redirect to="/login" />;
   }
-
+  console.log({ content });
   if (!loading && content.length === 0) {
     appointments = (
       <h4>
@@ -44,16 +55,25 @@ const Appointments = () => {
       </h4>
     );
   } else {
-    appointments = content && content.map(appointment => {
+    appointments = content && content.map((appointment, index) => {
       const d = new Date(appointment.appointment_date);
-      const date = d.toUTCString();
+      const addMinutes = function (date, min) {
+        return new Date(date.getTime() + min * 60000);
+      };
+      const date = addMinutes(d, 1).toLocaleString().split(' ').shift();
+      const fromTime = addMinutes(d, 1).toLocaleString().split(' ').slice(1);
+      const toTime = addMinutes(d, 20).toLocaleString().split(' ').slice(1)
+        .join(' ');
       return (
         <Link to={`/appointments/${appointment.id}`} key={appointment.id}>
           <div className="card m-4">
-            <div className="card-body">
-              <p>
-                On &nbsp;
-                {date}
+            <div className="card-body" style={{ textAlign: 'left', padding: '0' }}>
+              <span style={appointmentCount}>{ index + 1 }</span>
+              <p style={{ marginBottom: '8px' }}>
+                {`Date: ${date}`}
+              </p>
+              <p style={{ marginBottom: 0 }}>
+                {`Timings: ${fromTime} to ${toTime}`}
               </p>
             </div>
           </div>
